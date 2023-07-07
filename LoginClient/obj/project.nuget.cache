@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "lTi3hJQ+RcYo3sjTImPxqF+pGE1UO+5Qv6gog4bvOXq1RDfkOecK36fRkIaN5OzhDlK9YBKZtC4HZYatpeP1nA==",
+  "success": true,
+  "projectFilePath": "D:\\Work\\LoginClient\\LoginClient\\LoginClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\FishLiu\\.nuget\\packages\\bouncycastle.netcore\\1.9.0\\bouncycastle.netcore.1.9.0.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\corecompat.system.drawing.v2\\5.2.0-preview1-r131\\corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0-preview1-25305-02\\microsoft.netcore.platforms.2.0.0-preview1-25305-02.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\microsoft.web.webview2\\1.0.1905-prerelease\\microsoft.web.webview2.1.0.1905-prerelease.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0-preview.5.23280.8\\microsoft.win32.systemevents.8.0.0-preview.5.23280.8.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\system.drawing.common\\8.0.0-preview.5.23280.5\\system.drawing.common.8.0.0-preview.5.23280.5.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\system.security.accesscontrol\\4.4.0-preview1-25305-02\\system.security.accesscontrol.4.4.0-preview1-25305-02.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\system.security.permissions\\4.4.0-preview1-25305-02\\system.security.permissions.4.4.0-preview1-25305-02.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\system.security.principal.windows\\4.4.0-preview1-25305-02\\system.security.principal.windows.4.4.0-preview1-25305-02.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\zxing.net\\0.16.9\\zxing.net.0.16.9.nupkg.sha512",
+    "C:\\Users\\FishLiu\\.nuget\\packages\\zxing.net.bindings.corecompat.system.drawing\\0.16.8-beta\\zxing.net.bindings.corecompat.system.drawing.0.16.8-beta.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://teamcity.openrice.com/guestAuth/app/nuget/v1/FeedService.svc/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
