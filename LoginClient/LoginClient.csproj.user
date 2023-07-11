@@ -18,6 +18,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Update="Geetest\js\index.js">
+      <SubType>Code</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Bilibili\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

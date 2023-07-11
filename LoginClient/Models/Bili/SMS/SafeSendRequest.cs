@@ -15,4 +15,20 @@ namespace LoginClient.Models.Bili.SMS
         public string sms_type { set; get; }
         public string tmp_code { set; get; }
     }
+
+    class SafeVertifyRequest
+    {
+        public int code { set; get; }
+        public string source { get; } = "risk";
+        public string captcha_key { set; get; }
+        public string request_id { set; get; }
+        public string tmp_code { set; get; }
+        public string type { set; get; }
+    }
+
+    class SafeExgCookieRequest
+    {
+        public string code { set; get; }
+        public string source { get; } = "risk";
+    }
 }

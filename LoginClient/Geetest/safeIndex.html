@@ -25,17 +25,7 @@
 
         <div id="btn-result" class="btn">5. 结果</div>
     </div>
-    <form onsubmit="submitForm()">
-        <div>
-            <label for="account">账号: </label>
-            <input required class="inp" id="account" type="text" value="rem_userName">
-        </div>
-
-        <div>
-            <label for="password">密码: </label>
-            <input required class="inp" id="password" type="password">
-        </div>
-        <br>
+    <form>
         <label>验证：</label>
         <div id="captcha">
             <div id="text">
@@ -50,9 +40,19 @@
                 </div>
             </div>
         </div>
-        <div>
-            <label for="password">登录: </label>
-            <input class="inp" id="ipt_submit" type="submit" disabled>
+        <div id="div_phone">
+            <div>
+                <label for="phone">手机: </label>
+                <input class="inp" id="phone" type="text">
+                <button id="btn_sendSMS" disabled>发送</button>
+            </div>
+            <div>
+                <label for="SMScode">验证码: </label>
+                <input class="inp" id="SMScode" type="text">
+            </div>
+            <div>
+                <button id="btn_confirm">确认</button>
+            </div>
         </div>
     </form>
 
@@ -73,15 +73,25 @@
     <script src="js/index.js"></script>
 
     <script>
-        function submitForm() {
+        $('#btn_confirm').click(function () {
             var data = {
-                "username": $('#account').val(),
-                "password": $('#password').val(),
+                "phone": $('#phone').val(),
+                "SMScode": $('#SMScode').val(),
                 "validate": $('#validate').val(),
                 "seccode": $('#seccode').val(),
             };
             window.chrome.webview.postMessage(JSON.stringify(data));
-        }
+        });
+
+        $("#btn_sendSMS").click(function () {
+            var data = {
+                "phone": $('#phone').val(),
+                "validate": $('#validate').val(),
+                "seccode": $('#seccode').val(),
+            };
+            window.chrome.webview.postMessage(JSON.stringify(data));
+        });
+
     </script>
 </body>
 

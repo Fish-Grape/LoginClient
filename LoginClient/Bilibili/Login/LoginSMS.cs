@@ -26,14 +26,14 @@ namespace LoginClient.Bilibili.Login
         {
         }
 
-        public async override Task<Tuple<bool, string>> VerifyLogin(GeetestDAO geetestDAO)
+        public async override Task<Tuple<bool, T>> VerifyLogin<T>(GeetestDAO geetestDAO)
         {
             var SMScode = JsonHelper.GetJsonValue(json, "SMScode");
-            var result = await VerifySendSMS(int.Parse(SMScode));
-            return new Tuple<bool, string>(result, "");
+            var result = await VerifySendSMS<T>(int.Parse(SMScode));
+            return result;
         }
 
-        private async Task<bool> VerifySendSMS(int SMScode)
+        private async Task<Tuple<bool, T>> VerifySendSMS<T>(int SMScode)
         {
             var confirmRequest = new SMSLoginRequest()
             {
@@ -50,9 +50,9 @@ namespace LoginClient.Bilibili.Login
             {
                 MessageBox.Show("登录成功");
                 var headers = webResponse.Headers;
-                return true;
+                return new Tuple<bool, T>(true,(T)(object)confirmResponse);
             }
-            return false;
+            return new Tuple<bool, T>(false, default);
         }
 
         public async Task<SendResultDTO> SendSMS(string phone, GeetestDAO geetestDAO)

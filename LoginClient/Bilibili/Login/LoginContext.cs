@@ -35,15 +35,15 @@ namespace LoginClient.Bilibili.Login
         {
         }
 
-        public async Task<Tuple<bool, string>> VerifyLogin(GeetestDAO geetestDAO)
+        public async Task<Tuple<bool, T>> VerifyLogin<T>(GeetestDAO geetestDAO)
         {
-            return await loginSuper.VerifyLogin(geetestDAO);
+            return await loginSuper.VerifyLogin<T>(geetestDAO);
         }
 
         public async Task<SendResultDTO> SendSMS(string phone, GeetestDAO geetestDAO)
         {
-            var loginSuper = new LoginSMS();
-            return await loginSuper.SendSMS(phone, geetestDAO);
+            var loginSMS = new LoginSMS();
+            return await loginSMS.SendSMS(phone, geetestDAO);
         }
     }
 }

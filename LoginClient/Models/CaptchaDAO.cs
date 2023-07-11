@@ -34,4 +34,21 @@ namespace LoginClient.Models
         public string appid { get; set; }
     }
 
+
+    public class SafeCaptchaDAO
+    {
+        public int code { get; set; }
+        public string message { get; set; }
+        public int ttl { get; set; }
+        public SafeData data { get; set; }
+    }
+
+    public class SafeData
+    {
+        public string recaptcha_type { get; set; }
+        public string recaptcha_token { get; set; }
+        public string gee_challenge { get; set; }
+        public string gee_gt { get; set; }
+    }
+
 }

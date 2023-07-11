@@ -9,6 +9,6 @@ namespace LoginClient.Bilibili.Login
 {
     abstract class LoginSuper
     {
-        public abstract Task<Tuple<bool, string>> VerifyLogin(GeetestDAO geetestDAO);
+        public abstract Task<Tuple<bool, T>> VerifyLogin<T>(GeetestDAO geetestDAO);
     }
 }

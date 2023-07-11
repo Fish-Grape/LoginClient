@@ -1,6 +1,7 @@
 ﻿using LoginClient.Common;
 using LoginClient.Models;
 using LoginClient.Models.Bili;
+using LoginClient.Models.Bili.SMS;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,11 @@ namespace LoginClient.Bilibili.Login
             this.json = json;
         }
 
-        public async override Task<Tuple<bool, string>> VerifyLogin(GeetestDAO geetestDAO)
+        public LoginAccount()
+        {
+        }
+
+        public async override Task<Tuple<bool, T>> VerifyLogin<T>(GeetestDAO geetestDAO)
         {
             var loginRequest = JsonHelper.Instance.DeserializeObject<LoginRequest>(json);
             var publicKey = await WebApiRequest.WebApiGetAsync<PublicKeyDAO>(BiliResource.PublicKey);
@@ -38,7 +43,7 @@ namespace LoginClient.Bilibili.Login
             var content = salt + loginRequest.password;
             var rsaPassword = RsaEncryptWithPublic(newKey, content);
             loginRequest.password = rsaPassword;
-            var result = await LoginSubmit(loginRequest);
+            var result = await LoginSubmit<T>(loginRequest);
             return result;
         }
 
@@ -52,9 +57,9 @@ namespace LoginClient.Bilibili.Login
             return encode;
         }
 
-        private async Task<Tuple<bool, string>> LoginSubmit(LoginRequest loginRequest)
+        private async Task<Tuple<bool, T>> LoginSubmit<T>(LoginRequest loginRequest)
         {
-            var result = await VerifyAccountLogin(loginRequest);
+            var result = await VerifyAccountLogin<T>(loginRequest);
             if (result.Item1)
             {
                 var info = await WebApiRequest.WebApiGetAsync(BiliResource.MyinfoURL);
@@ -71,23 +76,22 @@ namespace LoginClient.Bilibili.Login
             return result;
         }
 
-        private async Task<Tuple<bool, string>> VerifyAccountLogin(LoginRequest loginRequest)
+        private async Task<Tuple<bool, T>> VerifyAccountLogin<T>(LoginRequest loginRequest)
         {
             var response = WebApiRequest.WebApiPost<LoginResponse>(BiliResource.LoginURL, loginRequest);
-            var code = response.code;
-            var hanldeResult = ResponseHelper.HandleResponse(code, response.data.message, response.data.status);
+            var message = response.message;
+            int status = -1;
+            if (response.data != null)
+            {
+                message = response.data.message;
+                status = response.data.status;
+            }
+            var hanldeResult = ResponseHelper.HandleResponse(response.code, message, status);
             if (hanldeResult && response.data.status == 0)
             {
-                SetCookie(response);
+                ResponseHelper.SetCookie(response.data.url);
             }
-            return new Tuple<bool, string>(hanldeResult, response.data.url);
-        }
-
-        private void SetCookie(LoginResponse response)
-        {
-            string cookie = response.data.url.Split('&')[3];
-            SoftwareCache.CookieString = cookie;
-            File.WriteAllText(".\\Cookie.txt", cookie);
+            return new Tuple<bool, T>(hanldeResult, (T)(object)response);
         }
     }
 }

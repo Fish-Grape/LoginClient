@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LoginClient.Models.Bili;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +18,12 @@ namespace LoginClient.Common
                 case 0: // 登录成功
                     switch (status)
                     {
-                        case 2:
-                            MessageBox.Show(message);
-                            break;
                         case 0:
                             return true;
+                        default:
+                            MessageBox.Show(message);
+                            return false;
                     }
-                    return true;
                 case -105:
                     MessageBox.Show("验证码错误！");
                     break;
@@ -36,5 +37,11 @@ namespace LoginClient.Common
             return false;
         }
 
+        public static void SetCookie(string url)
+        {
+            string cookie = url.Split('&')[3];
+            SoftwareCache.CookieString = cookie;
+            File.WriteAllText(".\\Cookie.txt", cookie);
+        }
     }
 }

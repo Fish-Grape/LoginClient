@@ -117,35 +117,6 @@ namespace LoginClient.Common
             });
         }
 
-
-        public static string PostUrl(string url, string postData)
-        {
-            string result = "";
-            try
-            {
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-                req.Method = "POST";
-                req.ContentType = "application/x-www-form-urlencoded";
-                req.Timeout = 800;//请求超时时间
-                byte[] data = Encoding.UTF8.GetBytes(postData);
-                req.ContentLength = data.Length;
-                using (Stream reqStream = req.GetRequestStream())
-                {
-                    reqStream.Write(data, 0, data.Length);
-                    reqStream.Close();
-                }
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-                Stream stream = resp.GetResponseStream();
-                //获取响应内容
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    result = reader.ReadToEnd();
-                }
-            }
-            catch (Exception e) { }
-            return result;
-        }
-
         /// <summary>
         /// 调用webapi通用方法(带参数)
         /// </summary>

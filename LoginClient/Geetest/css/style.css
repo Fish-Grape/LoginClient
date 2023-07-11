@@ -4,8 +4,16 @@ body {
     font-family: "PingFangSC-Regular", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 
-.hide{
-    display:none !important;
+#phone{
+    width:230px;
+}
+
+#SMScode{
+    width:277px;
+}
+
+.hide {
+    display: none !important;
 }
 
 .show{
