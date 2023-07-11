@@ -40,7 +40,9 @@ bld/
 #dll file
 *.dll
 *.pdb
-Debug/
+*.txt
+bin
+obj
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/

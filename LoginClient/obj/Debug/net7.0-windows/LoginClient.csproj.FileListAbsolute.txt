@@ -49,3 +49,5 @@ D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\Geetest\css\style.css
 D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\Geetest\js\gt.js
 D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\Geetest\js\jquery.js
 D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\BouncyCastle.Crypto.dll
+D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\Geetest\safeIndex.html
+D:\Work\LoginClient\LoginClient\bin\Debug\net7.0-windows\Geetest\js\index.js

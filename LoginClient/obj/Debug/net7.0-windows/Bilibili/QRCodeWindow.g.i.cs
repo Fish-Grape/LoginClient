@@ -63,7 +63,7 @@ namespace LoginClient {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LoginClient;V1.0.0.0;component/bilibili/qrcodewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LoginClient;component/bilibili/qrcodewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Bilibili\QRCodeWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
